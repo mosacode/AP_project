@@ -43,4 +43,7 @@ public class FullSupportVendor extends VendorTypeClass{
     public Image getImageURL(URL url){
         return null;
     }
+    public String describe(){
+        return getText();
+    }
 }

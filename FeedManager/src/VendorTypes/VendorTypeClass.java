@@ -29,6 +29,10 @@ public abstract class VendorTypeClass implements VendorTypeInterface{
         return this.getClass().toString() + "\n" + url.toString() + "\n";
     }
 
+    public String describe(){
+        return "";
+    }
+
     public URL getURL(){
         return url;
     }

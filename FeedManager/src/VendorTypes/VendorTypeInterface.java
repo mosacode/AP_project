@@ -14,6 +14,9 @@ public interface VendorTypeInterface {
         ret[0] = DataTypeEnum.Null;
         return ret;
     }
+    public default String describe(){
+        return "";
+    }
     public default String getUnifier(){
         return "Interface>not implemented.";
     }

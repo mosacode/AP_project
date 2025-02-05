@@ -39,6 +39,9 @@ public class RawTextOrg extends VendorTypeClass{
         }
         return url.getFile();
     }
+    public String describe(){
+        return getText();
+    }
     public ArrayList<Float> getTextEmbedding(){
         return embeddingService.getEmbedding(getText());
     }

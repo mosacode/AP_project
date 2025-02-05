@@ -9,6 +9,7 @@ import io.pinecone.clients.Pinecone;
 import org.openapitools.db_control.client.model.DeletionProtection;
 
 import java.awt.*;
+import java.awt.image.AreaAveragingScaleFilter;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -103,13 +104,51 @@ public class Main {
         //testEmbeddingService(OllamaEmbeddingTool.getInstance("http://localhost:11434/api/embeddings"));
         //testImageGet();
 
-        Server server = new Server();
+        /*Server server = new Server();
         UserProfile user = new UserProfile("john_temple_bell", "nothing_is_obvious");
         server.registerUser(user);
         PineConeDataBase db = new PineConeDataBase();
         db.connect(server, user);
         System.out.printf(((Boolean)db.isConnected()).toString());
-        db.createTable("indeX", 768);
+        db.createTable("indeX", 768);*/
 
+        OllamaLLMModel llm = new OllamaLLMModel();
+        VendorTypeClass vend0 = new VendorTypeClass() {
+            @Override
+            public String describe() {
+                return "tehran is irans capital, with huge population and movement.";
+            }
+        };
+        VendorTypeClass vend1 = new VendorTypeClass() {
+            @Override
+            public String describe() {
+                return "new job offers in tehran available. contact for more info.";
+            }
+        };
+        VendorTypeClass vend2 = new VendorTypeClass() {
+            @Override
+            public String describe() {
+                return "ikco is largest car manufacturer in iran, working in tehran suburbans.";
+            }
+        };
+        VendorTypeClass vend3 = new VendorTypeClass() {
+            @Override
+            public String describe() {
+                return "the minister added: the second phase of industrial land appropriation will be over this year.";
+            }
+        };
+        VendorTypeClass vend4 = new VendorTypeClass() {
+            @Override
+            public String describe() {
+                return "the city has dynamic population. during day, people come here from other cities for work.";
+            }
+        };
+        ArrayList<VendorTypeClass> arr = new ArrayList<>(5);
+        arr.add(vend0);
+        arr.add(vend1);
+        arr.add(vend2);
+        arr.add(vend3);
+        arr.add(vend4);
+        System.out.printf(llm.ask(arr));
     }
 }
